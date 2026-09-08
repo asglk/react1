@@ -12,8 +12,6 @@ import { Button } from "antd";
 
 const App = () => {
 
-
-  
   return (
     <div className="app">
 

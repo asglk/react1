@@ -19,7 +19,7 @@ const BoardContent = () => {
         // 백엔드의 주소 ? 파라미터로 가져올 번호를 전달
         const url = `/api/board/selectonehit.json?no=${no}`;
         const { data } = await axios.get(url);
-        console.log(data);
+        //console.log(data);
         setNextNo(data.nextNo);
         setPrevNo(data.prevNo);
         setResult(data.result);

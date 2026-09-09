@@ -1,0 +1,148 @@
+/* 회원가입 전체 영역 */
+.join-container {
+    min-height: calc(100vh - 130px);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 50px 20px;
+
+    background-color: #111111;
+    box-sizing: border-box;
+}
+
+/* 회원가입 박스 */
+.join-box {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 30px;
+
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 10px;
+
+    box-sizing: border-box;
+}
+
+/* 회원가입 제목 */
+.join-box h3 {
+    margin: 0 0 24px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+/* 회원가입 폼 */
+.join-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+/* 입력창 한 줄 */
+.join-input-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+/* 입력창 */
+.join-input-group input {
+    width: 100%;
+    height: 44px;
+
+    padding: 0 14px;
+
+    background-color: #181818;
+    color: #eeeeee;
+
+    border: 1px solid #333333;
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    outline: none;
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+/* placeholder */
+.join-input-group input::placeholder {
+    color: #777777;
+}
+
+/* 입력창 마우스 오버 */
+.join-input-group input:hover {
+    border-color: #555555;
+}
+
+/* 입력창 선택 */
+.join-input-group input:focus {
+    background-color: #1d1d1d;
+    border-color: #7dafff;
+}
+
+/* 아이디 중복확인 문구 */
+.join-check {
+    min-height: 18px;
+
+    color: #999999;
+
+    font-size: 13px;
+    text-align: right;
+}
+
+/* 회원가입 버튼 */
+.join-button {
+    width: 100%;
+    height: 44px;
+
+    margin-top: 8px;
+
+    background-color: #eeeeee;
+    color: #111111;
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* 회원가입 버튼 마우스 오버 */
+.join-button:hover {
+    background-color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* 작은 화면 */
+@media (max-width: 700px) {
+    .join-container {
+        padding: 25px 12px;
+    }
+
+    .join-box {
+        padding: 20px 14px;
+    }
+
+    .join-box h3 {
+        font-size: 21px;
+    }
+}

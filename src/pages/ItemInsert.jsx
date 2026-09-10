@@ -1,47 +1,80 @@
 import React, { useState } from 'react';
 import '../css/ItemInsert.css';
+import noimage from '../assets/noimage.jpg';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const ItemInsert = () => {
 
     const navigate = useNavigate();
     // 상태변수
-    const [iname, setIname] = useState('');
-    const [iprice, setIprice] = useState('');
-    const [icontent, setIcontent] = useState('');
-    const [iqty, setIqty] = useState('');
-    const [iimg, setIimg] = useState('');
+    const [name, setName] = useState('');
+    const [price, setPrice] = useState('');
+    const [content, setContent] = useState('');
+    const [qty, setQty] = useState('');
+    const [img, setImg] = useState(null);
+    const [imgurl, setImgurl] = useState(noimage)
 
     // 함수
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
 
-        if (iname.trim() === '') {
+        if (name.trim() === '') {
             alert('물품명을 입력해주세요.');
             return;
         }
 
-        if (iprice === '') {
+        if (price === '') {
             alert('물품가격을 입력해주세요.');
             return;
         }
 
-        if (icontent.trim() === '') {
+        if (content.trim() === '') {
             alert('물품내용을 입력해주세요.');
             return;
         }
 
-        if (iqty === '') {
+        if (qty === '') {
             alert('물품수량을 입력해주세요.');
             return;
         }
 
+        const url = `/api/item/insert.json`;
+        const headers = {"Content-Type" :"multipart/form-data"};
+        const body = new FormData();
+        body.append("name",name);
+        body.append("price",price);
+        body.append("content",content);
+        body.append("quantity",qty);
+        body.append("image",img);
+ 
+        const {data} = await axios.post(url, body, {headers:headers});
+        console.log(data);
         // 모든 값이 입력된 경우
         alert('입력이 완료되었습니다.');
         navigate("/");
         // 나중에 여기서 axios를 이용해 백엔드로 전송
     };
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        //console.log(file);
+        if (!file) {
+            setImg(null);
+            setImgurl(noimage);
+            return;
+        }
 
+        if (!file.type.startsWith('image/')) {
+            alert('이미지 파일만 선택할 수 있습니다.');
+            e.target.value = '';
+            setImg(null);
+            setImgurl(noimage);
+            return;
+        }
+
+        setImg(file);
+        setImgurl(URL.createObjectURL(file));
+    };
     // 화면표시
     return (
         <div className="item-insert-container">
@@ -54,15 +87,15 @@ const ItemInsert = () => {
                     className="item-insert-form"
                     onSubmit={handleSubmit}
                 >
-
+                    <div className="item-insert-fields">
                     <div className="item-form-group">
                         <label>물품명</label>
 
                         <input
                             type="text"
-                            value={iname}
+                            value={name}
                             placeholder="물품명을 입력해주세요"
-                            onChange={(e) => setIname(e.target.value)}
+                            onChange={(e) => setName(e.target.value)}
                         />
                     </div>
 
@@ -71,9 +104,9 @@ const ItemInsert = () => {
 
                         <input
                             type="number"
-                            value={iprice}
+                            value={price}
                             placeholder="물품가격을 입력해주세요"
-                            onChange={(e) => setIprice(e.target.value)}
+                            onChange={(e) => setPrice(e.target.value)}
                         />
                     </div>
 
@@ -81,9 +114,9 @@ const ItemInsert = () => {
                         <label>물품내용</label>
 
                         <textarea
-                            value={icontent}
+                            value={content}
                             placeholder="물품내용을 입력해주세요"
-                            onChange={(e) => setIcontent(e.target.value)}
+                            onChange={(e) => setContent(e.target.value)}
                         />
                     </div>
 
@@ -92,19 +125,34 @@ const ItemInsert = () => {
 
                         <input
                             type="number"
-                            value={iqty}
+                            value={qty}
                             placeholder="물품수량을 입력해주세요"
-                            onChange={(e) => setIqty(e.target.value)}
+                            onChange={(e) => setQty(e.target.value)}
                         />
                     </div>
 
-                    <div className="item-form-group">
+                    <div className="item-form-group item-image-group">
                         <label>이미지</label>
 
-                        <p className="item-image-info">
-                            이미지 등록 기능은 추후 추가 예정
-                        </p>
+                        <div className="item-image-area">
+                            <div className="item-file-area">
+                                <input
+                                    className="item-file-input"
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={handleImageChange}
+                                />
+                            </div>
+
+                        </div>
                     </div>
+                    </div>
+
+                    <aside className="item-preview-panel" aria-label="이미지 미리보기">
+                        <div className="item-image-preview">
+                            <img src={imgurl} alt="물품 미리보기" />
+                        </div>
+                    </aside>
 
                     <button
                         className="item-insert-button"

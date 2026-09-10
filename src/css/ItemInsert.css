@@ -15,7 +15,9 @@
 /* 물품등록 박스 */
 .item-insert-box {
     width: 100%;
-    max-width: 700px;
+    max-width: 1100px;
+    min-width: 0;
+    flex: 1;
 
     padding: 30px;
 
@@ -34,19 +36,26 @@
 
     font-size: 24px;
     font-weight: 600;
-
     text-align: center;
 }
 
-/* 전체 폼 */
+/* 입력 영역과 미리보기를 한 카드 안에 나란히 배치 */
 .item-insert-form {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    align-items: stretch;
+    gap: 28px 32px;
+}
+
+.item-insert-fields {
+    min-width: 0;
     display: flex;
     flex-direction: column;
 
     gap: 18px;
 }
 
-/* 한 줄 */
+/* 각 입력 항목 */
 .item-form-group {
     display: flex;
     align-items: center;
@@ -63,14 +72,14 @@
 
     font-size: 14px;
     font-weight: 600;
-
     text-align: right;
 }
 
-/* 입력창 */
+/* 일반 입력창 및 내용 입력창 */
 .item-form-group input,
 .item-form-group textarea {
     flex: 1;
+    min-width: 0;
 
     padding: 12px 14px;
 
@@ -79,10 +88,11 @@
 
     border: 1px solid #333333;
     border-radius: 6px;
+    outline: none;
 
+    font-family: inherit;
     font-size: 14px;
 
-    outline: none;
     box-sizing: border-box;
 
     transition:
@@ -90,14 +100,16 @@
         background-color 0.2s ease;
 }
 
+/* 일반 입력창 높이 */
 .item-form-group input {
     height: 44px;
 }
 
-/* 물품내용 */
+/* 물품내용 입력창 */
 .item-form-group textarea {
     min-height: 130px;
 
+    line-height: 1.5;
     resize: vertical;
 }
 
@@ -113,37 +125,150 @@
     border-color: #555555;
 }
 
-/* 입력창 선택 */
+/* 입력창이 선택됐을 때 */
 .item-form-group input:focus,
 .item-form-group textarea:focus {
     background-color: #1d1d1d;
     border-color: #7dafff;
 }
 
-/* 이미지 안내 */
-.item-image-info {
-    flex: 1;
+/* 숫자 입력창 버튼 색상 */
+.item-form-group input[type="number"] {
+    color-scheme: dark;
+}
 
-    margin: 0;
-    padding: 14px;
+/* 이미지 항목 */
+.item-image-group {
+    align-items: flex-start;
+}
+
+/* 이미지 항목 제목 위치 */
+.item-image-group > label {
+    padding-top: 14px;
+}
+
+/* 파일 선택 박스 */
+.item-image-area {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 18px;
 
     background-color: #181818;
-    color: #777777;
-
-    border: 1px dashed #444444;
+    border: 1px solid #333333;
     border-radius: 6px;
-
-    font-size: 13px;
 
     box-sizing: border-box;
 }
 
+/* 파일 선택 영역 */
+.item-file-area {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+/* 파일 선택 입력창 */
+.item-form-group .item-file-input {
+    width: 100%;
+    height: auto;
+
+    padding: 8px;
+
+    background-color: #202020;
+    color: #bbbbbb;
+
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+/* 파일 선택창에 마우스를 올렸을 때 */
+.item-form-group .item-file-input:hover {
+    border-color: #555555;
+}
+
+/* 파일 선택 버튼 */
+.item-file-input::file-selector-button {
+    margin-right: 10px;
+    padding: 8px 12px;
+
+    background-color: #eeeeee;
+    color: #111111;
+
+    border: none;
+    border-radius: 5px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.item-file-input::file-selector-button:hover {
+    background-color: #ffffff;
+}
+
+/* 같은 카드 안의 오른쪽 미리보기 영역 */
+.item-preview-panel {
+    min-width: 0;
+    display: flex;
+    box-sizing: border-box;
+}
+
+/* 이미지 미리보기 틀 */
+.item-image-preview {
+    width: 100%;
+    min-height: 360px;
+    position: relative;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background-color: #111111;
+    border: 1px solid #333333;
+    border-radius: 8px;
+
+    box-sizing: border-box;
+}
+
+/* 미리보기 이미지 */
+.item-image-preview img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+}
+
 /* 등록 버튼 */
 .item-insert-button {
+    grid-column: 1 / -1;
     width: 180px;
     height: 44px;
 
-    margin: 15px auto 0;
+    margin: 0 auto;
 
     background-color: #eeeeee;
     color: #111111;
@@ -151,6 +276,7 @@
     border: none;
     border-radius: 6px;
 
+    font-family: inherit;
     font-size: 14px;
     font-weight: 600;
 
@@ -161,22 +287,54 @@
         transform 0.2s ease;
 }
 
+/* 등록 버튼에 마우스를 올렸을 때 */
 .item-insert-button:hover {
     background-color: #ffffff;
     transform: translateY(-1px);
 }
 
-/* 모바일 */
-@media (max-width: 700px) {
+/* 등록 버튼을 눌렀을 때 */
+.item-insert-button:active {
+    transform: translateY(0);
+}
 
+@media (max-width: 900px) {
+    .item-insert-box {
+        max-width: 700px;
+    }
+
+    .item-insert-form {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .item-image-preview {
+        min-height: 0;
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* 모바일 화면 */
+@media (max-width: 700px) {
+    /* 전체 영역 */
     .item-insert-container {
+        min-height: calc(100vh - 130px);
         padding: 25px 12px;
     }
 
+    /* 물품등록 박스 */
     .item-insert-box {
         padding: 20px 14px;
     }
 
+    /* 제목 */
+    .item-insert-box h3 {
+        margin-bottom: 24px;
+
+        font-size: 21px;
+    }
+
+    /* 입력 항목 */
     .item-form-group {
         flex-direction: column;
         align-items: stretch;
@@ -184,9 +342,54 @@
         gap: 7px;
     }
 
+    /* 입력 항목 이름 */
     .item-form-group label {
         width: auto;
 
         text-align: left;
+    }
+
+    /* 입력창 */
+    .item-form-group input,
+    .item-form-group textarea {
+        width: 100%;
+    }
+
+    /* 이미지 항목 이름 */
+    .item-image-group > label {
+        padding-top: 0;
+    }
+
+    /* 이미지 전체 영역 */
+    .item-image-area {
+        width: 100%;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 14px;
+        padding: 14px;
+    }
+
+    /* 파일 선택 영역 */
+    .item-file-area {
+        width: 100%;
+    }
+
+    /* 파일 선택 입력창 */
+    .item-form-group .item-file-input {
+        width: 100%;
+    }
+
+    /* 이미지 미리보기 */
+    .item-image-preview {
+        width: 100%;
+    }
+
+    /* 등록 버튼 */
+    .item-insert-button {
+        width: 100%;
+
+        margin-top: 10px;
     }
 }

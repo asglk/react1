@@ -12,6 +12,7 @@ import Footer from "./footer";
 import { Button } from "antd";
 import MyPage from "./pages/MyPage";
 import { useSelector } from "react-redux";
+import ItemInsert from "./pages/ItemInsert";
 
 const App = () => {
 
@@ -41,6 +42,9 @@ const App = () => {
        {isLogin && <Link to="/mypage">
           <button className="nav-button">My페이지</button>
         </Link> }
+        {isLogin && <Link to="/item_insert">
+          <button className="nav-button">물품등록</button>
+        </Link> }
       </nav>
 
       {/* 페이지 */}
@@ -54,6 +58,7 @@ const App = () => {
           <Route path="/logout" element={<Logout />} />
           <Route path="/join" element={<Join />} />
           <Route path="/mypage" element={<MyPage />} />
+          <Route path="/item_insert" element={<ItemInsert />} />
         </Routes>
       </main>
 

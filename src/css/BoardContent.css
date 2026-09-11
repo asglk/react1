@@ -1,0 +1,412 @@
+/* =========================
+   BoardContent 전체
+========================= */
+
+.board-content-container {
+    width: 100%;
+}
+
+.board-content-box {
+    width: 100%;
+    max-width: 1000px;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   게시글 제목
+========================= */
+
+.board-content-title {
+    min-height: 64px;
+
+    padding: 20px;
+
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+
+    background-color: #242424;
+
+    color: var(--color-text);
+
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    word-break: break-word;
+    overflow-wrap: anywhere;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   게시글 정보
+========================= */
+
+.board-content-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+
+    padding: 14px 20px;
+
+    border-bottom: 1px solid var(--color-border);
+
+    background-color: var(--color-field);
+
+    box-sizing: border-box;
+}
+
+.board-content-meta > div {
+    display: flex;
+    align-items: center;
+
+    min-width: 120px;
+
+    font-size: 13px;
+}
+
+.board-content-meta span {
+    margin-right: 8px;
+
+    color: var(--color-muted);
+}
+
+.board-content-meta strong {
+    color: var(--color-text);
+
+    font-weight: 500;
+
+    word-break: break-word;
+}
+
+
+/* =========================
+   게시글 내용
+========================= */
+
+.board-content-body {
+    min-height: 320px;
+
+    padding: 28px 24px;
+
+    border-bottom: 1px solid var(--color-border);
+
+    background-color: var(--color-field);
+
+    color: var(--color-text);
+
+    font-size: 15px;
+    line-height: 1.8;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+    overflow-wrap: anywhere;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   이전글 / 다음글
+========================= */
+
+.board-content-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.board-content-nav-item {
+    position: relative;
+}
+
+.board-content-navigation button {
+    min-width: 100px;
+    height: 38px;
+
+    padding: 0 14px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+
+    background-color: transparent;
+
+    color: var(--color-text);
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.board-content-navigation button:hover {
+    background-color: #242424;
+
+    border-color: var(--color-accent);
+
+    color: var(--color-accent);
+}
+
+
+/* =========================
+   이전글 / 다음글 안내창
+========================= */
+
+.board-content-tooltip {
+    position: absolute;
+
+    left: 50%;
+    bottom: calc(100% + 10px);
+
+    transform: translateX(-50%);
+
+    padding: 8px 12px;
+
+    border: 1px solid #666666;
+    border-radius: 5px;
+
+    background-color: #ffffff;
+
+    color: #222222;
+
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1.4;
+
+    white-space: nowrap;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+
+    pointer-events: none;
+
+    z-index: 10;
+
+    animation: board-tooltip-show 0.15s ease;
+}
+
+
+/* 말풍선 꼬리 */
+
+.board-content-tooltip::before {
+    content: '';
+
+    position: absolute;
+
+    top: 100%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-width: 6px;
+    border-style: solid;
+
+    border-color:
+        #ffffff
+        transparent
+        transparent
+        transparent;
+}
+
+
+/* 툴팁 등장 효과 */
+
+@keyframes board-tooltip-show {
+
+    from {
+        opacity: 0;
+
+        transform: translate(-50%, 3px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translate(-50%, 0);
+    }
+
+}
+
+
+/* =========================
+   하단 버튼 영역
+========================= */
+
+.board-content-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 28px;
+}
+
+.board-content-actions a {
+    text-decoration: none;
+}
+
+
+/* =========================
+   목록 버튼
+========================= */
+
+.board-content-list-button {
+    height: 38px;
+}
+
+
+/* =========================
+   수정 / 삭제 버튼 영역
+========================= */
+
+.board-content-edit-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.board-content-update-button,
+.board-content-delete-button {
+    height: 38px;
+
+    padding: 0 16px;
+
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* =========================
+   수정 버튼
+========================= */
+
+.board-content-update-button {
+    border: 1px solid var(--color-border);
+
+    background-color: transparent;
+
+    color: var(--color-text);
+}
+
+.board-content-update-button:hover {
+    border-color: var(--color-accent);
+
+    background-color: #242424;
+
+    color: var(--color-accent);
+}
+
+
+/* =========================
+   삭제 버튼
+========================= */
+
+.board-content-delete-button {
+    border: 1px solid #6b3030;
+
+    background-color: transparent;
+
+    color: #ff7777;
+}
+
+.board-content-delete-button:hover {
+    border-color: #ff7777;
+
+    background-color: #3a1f1f;
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 700px) {
+
+    .board-content-title {
+        min-height: 58px;
+
+        padding: 16px;
+
+        font-size: 18px;
+    }
+
+
+    .board-content-meta {
+        gap: 10px 0;
+
+        padding: 12px 16px;
+    }
+
+    .board-content-meta > div {
+        width: 50%;
+        min-width: 0;
+    }
+
+
+    .board-content-body {
+        min-height: 240px;
+
+        padding: 20px 16px;
+
+        font-size: 14px;
+    }
+
+
+    .board-content-navigation {
+        gap: 8px;
+    }
+
+    .board-content-navigation button {
+        min-width: 90px;
+    }
+
+
+    .board-content-tooltip {
+        padding: 7px 10px;
+
+        font-size: 11px;
+    }
+
+
+    .board-content-actions {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 10px;
+    }
+
+    .board-content-actions > a {
+        width: 100%;
+    }
+
+    .board-content-list-button {
+        width: 100%;
+    }
+
+
+    .board-content-edit-actions {
+        width: 100%;
+    }
+
+    .board-content-edit-actions button {
+        flex: 1;
+    }
+
+}

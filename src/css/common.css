@@ -1,0 +1,108 @@
+/* 새 페이지에서도 ui-* 클래스를 조합해 같은 테마를 사용합니다. */
+.ui-page {
+    min-height: var(--page-min-height);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+    background-color: var(--color-bg);
+    box-sizing: border-box;
+}
+
+.ui-card {
+    width: 100%;
+    max-width: 500px;
+    min-width: 0;
+    padding: 30px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-sizing: border-box;
+}
+
+.ui-title {
+    margin: 0 0 24px;
+    color: var(--color-heading);
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.ui-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ui-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.ui-label {
+    color: var(--color-label);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ui-input {
+    width: 100%;
+    min-width: 0;
+    height: var(--control-height);
+    padding: 0 14px;
+    background-color: var(--color-field);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+textarea.ui-input {
+    height: auto;
+    min-height: 130px;
+    padding: 12px 14px;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.ui-input::placeholder { color: var(--color-muted); }
+.ui-input:hover { border-color: var(--color-border-hover); }
+.ui-input:focus {
+    background-color: var(--color-field-focus);
+    border-color: var(--color-accent);
+}
+.ui-input[type='number'] { color-scheme: dark; }
+
+.ui-button {
+    height: var(--control-height);
+    padding: 0 20px;
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    border: none;
+    border-radius: var(--radius-control);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.ui-button:hover {
+    background-color: var(--color-heading);
+    transform: translateY(-1px);
+}
+.ui-button:active { transform: translateY(0); }
+.ui-button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+    .ui-page { padding: 25px 12px; }
+    .ui-card { padding: 20px 14px; }
+    .ui-title { font-size: 21px; }
+}

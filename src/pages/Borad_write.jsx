@@ -41,14 +41,14 @@ const Borad_write = () => {
     }
     //5. 화면표시
     return (
-        <div className="write-container">
-            <div className="write-box">
+        <div className="ui-page write-container">
+            <div className="ui-card write-box">
 
-                <h3>글쓰기</h3>
+                <h3 className="ui-title">글쓰기</h3>
                 <form onSubmit={handlnInsert}>
-                <div className="input-group">
-                    <label>제목</label>
-                    <input
+                <div className="ui-field input-group">
+                    <label className="ui-label">제목</label>
+                    <input className="ui-input"
                         type="text"
                         placeholder="제목을 입력하세요"
                         value={title}
@@ -56,18 +56,18 @@ const Borad_write = () => {
                     />
                 </div>
 
-                <div className="input-group">
-                    <label>내용</label>
-                    <textarea
+                <div className="ui-field input-group">
+                    <label className="ui-label">내용</label>
+                    <textarea className="ui-input"
                         placeholder="내용을 입력하세요"
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
                     />
                 </div>
 
-                <div className="input-group">
-                    <label>작성자</label>
-                    <input
+                <div className="ui-field input-group">
+                    <label className="ui-label">작성자</label>
+                    <input className="ui-input"
                         type="text"
                         placeholder="작성자를 입력하세요"
                         value={writer}
@@ -75,7 +75,7 @@ const Borad_write = () => {
                     />
                 </div>
 
-                <button type='submit' className="write-button">
+                <button type='submit' className="ui-button write-button">
                     글쓰기
                 </button>
                 <Link to="/borad" className="back-button">

@@ -1,0 +1,33 @@
+.account-settings-card {
+    max-width: 500px;
+    text-align: left;
+}
+
+.account-settings-description {
+    margin: -12px 0 28px;
+    color: var(--color-label);
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.account-settings-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.account-settings-actions .ui-button {
+    flex: 1;
+}
+
+.account-settings-cancel {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.account-settings-cancel:hover {
+    background-color: var(--color-field-focus);
+    border-color: var(--color-border-hover);
+}

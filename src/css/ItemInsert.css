@@ -1,45 +1,3 @@
-/* 물품등록 전체 영역 */
-.item-insert-container {
-    min-height: calc(100vh - 130px);
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    padding: 50px 20px;
-
-    background-color: #111111;
-    box-sizing: border-box;
-}
-
-/* 물품등록 박스 */
-.item-insert-box {
-    width: 100%;
-    max-width: 1100px;
-    min-width: 0;
-    flex: 1;
-
-    padding: 30px;
-
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
-    border-radius: 10px;
-
-    box-sizing: border-box;
-}
-
-/* 제목 */
-.item-insert-box h3 {
-    margin: 0 0 30px;
-
-    color: #ffffff;
-
-    font-size: 24px;
-    font-weight: 600;
-    text-align: center;
-}
-
-/* 입력 영역과 미리보기를 한 카드 안에 나란히 배치 */
 .item-insert-form {
     display: grid;
     grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
@@ -55,7 +13,6 @@
     gap: 18px;
 }
 
-/* 각 입력 항목 */
 .item-form-group {
     display: flex;
     align-items: center;
@@ -63,91 +20,21 @@
     gap: 20px;
 }
 
-/* 왼쪽 항목 이름 */
 .item-form-group label {
     width: 100px;
     flex-shrink: 0;
 
-    color: #bbbbbb;
-
-    font-size: 14px;
-    font-weight: 600;
     text-align: right;
 }
 
-/* 일반 입력창 및 내용 입력창 */
-.item-form-group input,
-.item-form-group textarea {
-    flex: 1;
-    min-width: 0;
-
-    padding: 12px 14px;
-
-    background-color: #181818;
-    color: #eeeeee;
-
-    border: 1px solid #333333;
-    border-radius: 6px;
-    outline: none;
-
-    font-family: inherit;
-    font-size: 14px;
-
-    box-sizing: border-box;
-
-    transition:
-        border-color 0.2s ease,
-        background-color 0.2s ease;
-}
-
-/* 일반 입력창 높이 */
-.item-form-group input {
-    height: 44px;
-}
-
-/* 물품내용 입력창 */
-.item-form-group textarea {
-    min-height: 130px;
-
-    line-height: 1.5;
-    resize: vertical;
-}
-
-/* placeholder */
-.item-form-group input::placeholder,
-.item-form-group textarea::placeholder {
-    color: #777777;
-}
-
-/* 마우스를 올렸을 때 */
-.item-form-group input:hover,
-.item-form-group textarea:hover {
-    border-color: #555555;
-}
-
-/* 입력창이 선택됐을 때 */
-.item-form-group input:focus,
-.item-form-group textarea:focus {
-    background-color: #1d1d1d;
-    border-color: #7dafff;
-}
-
-/* 숫자 입력창 버튼 색상 */
-.item-form-group input[type="number"] {
-    color-scheme: dark;
-}
-
-/* 이미지 항목 */
 .item-image-group {
     align-items: flex-start;
 }
 
-/* 이미지 항목 제목 위치 */
 .item-image-group > label {
     padding-top: 14px;
 }
 
-/* 파일 선택 박스 */
 .item-image-area {
     flex: 1;
     min-width: 0;
@@ -160,14 +47,13 @@
 
     padding: 18px;
 
-    background-color: #181818;
-    border: 1px solid #333333;
+    background-color: var(--color-field);
+    border: 1px solid var(--color-border);
     border-radius: 6px;
 
     box-sizing: border-box;
 }
 
-/* 파일 선택 영역 */
 .item-file-area {
     flex: 1;
     min-width: 0;
@@ -178,7 +64,6 @@
     gap: 10px;
 }
 
-/* 파일 선택 입력창 */
 .item-form-group .item-file-input {
     width: 100%;
     height: auto;
@@ -186,7 +71,7 @@
     padding: 8px;
 
     background-color: #202020;
-    color: #bbbbbb;
+    color: var(--color-label);
 
     border: 1px solid #3a3a3a;
     border-radius: 6px;
@@ -194,18 +79,12 @@
     cursor: pointer;
 }
 
-/* 파일 선택창에 마우스를 올렸을 때 */
-.item-form-group .item-file-input:hover {
-    border-color: #555555;
-}
-
-/* 파일 선택 버튼 */
 .item-file-input::file-selector-button {
     margin-right: 10px;
     padding: 8px 12px;
 
-    background-color: #eeeeee;
-    color: #111111;
+    background-color: var(--color-text);
+    color: var(--color-bg);
 
     border: none;
     border-radius: 5px;
@@ -220,17 +99,15 @@
 }
 
 .item-file-input::file-selector-button:hover {
-    background-color: #ffffff;
+    background-color: var(--color-heading);
 }
 
-/* 같은 카드 안의 오른쪽 미리보기 영역 */
 .item-preview-panel {
     min-width: 0;
     display: flex;
     box-sizing: border-box;
 }
 
-/* 이미지 미리보기 틀 */
 .item-image-preview {
     width: 100%;
     min-height: 360px;
@@ -243,14 +120,13 @@
 
     overflow: hidden;
 
-    background-color: #111111;
-    border: 1px solid #333333;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
     border-radius: 8px;
 
     box-sizing: border-box;
 }
 
-/* 미리보기 이미지 */
 .item-image-preview img {
     position: absolute;
     inset: 0;
@@ -262,46 +138,7 @@
     object-fit: contain;
 }
 
-/* 등록 버튼 */
-.item-insert-button {
-    grid-column: 1 / -1;
-    width: 180px;
-    height: 44px;
-
-    margin: 0 auto;
-
-    background-color: #eeeeee;
-    color: #111111;
-
-    border: none;
-    border-radius: 6px;
-
-    font-family: inherit;
-    font-size: 14px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-/* 등록 버튼에 마우스를 올렸을 때 */
-.item-insert-button:hover {
-    background-color: #ffffff;
-    transform: translateY(-1px);
-}
-
-/* 등록 버튼을 눌렀을 때 */
-.item-insert-button:active {
-    transform: translateY(0);
-}
-
 @media (max-width: 900px) {
-    .item-insert-box {
-        max-width: 700px;
-    }
 
     .item-insert-form {
         grid-template-columns: minmax(0, 1fr);
@@ -314,27 +151,8 @@
     }
 }
 
-/* 모바일 화면 */
 @media (max-width: 700px) {
-    /* 전체 영역 */
-    .item-insert-container {
-        min-height: calc(100vh - 130px);
-        padding: 25px 12px;
-    }
 
-    /* 물품등록 박스 */
-    .item-insert-box {
-        padding: 20px 14px;
-    }
-
-    /* 제목 */
-    .item-insert-box h3 {
-        margin-bottom: 24px;
-
-        font-size: 21px;
-    }
-
-    /* 입력 항목 */
     .item-form-group {
         flex-direction: column;
         align-items: stretch;
@@ -342,25 +160,21 @@
         gap: 7px;
     }
 
-    /* 입력 항목 이름 */
     .item-form-group label {
         width: auto;
 
         text-align: left;
     }
 
-    /* 입력창 */
     .item-form-group input,
     .item-form-group textarea {
         width: 100%;
     }
 
-    /* 이미지 항목 이름 */
     .item-image-group > label {
         padding-top: 0;
     }
 
-    /* 이미지 전체 영역 */
     .item-image-area {
         width: 100%;
 
@@ -371,25 +185,25 @@
         padding: 14px;
     }
 
-    /* 파일 선택 영역 */
     .item-file-area {
         width: 100%;
     }
 
-    /* 파일 선택 입력창 */
     .item-form-group .item-file-input {
         width: 100%;
     }
 
-    /* 이미지 미리보기 */
     .item-image-preview {
         width: 100%;
     }
+}
 
-    /* 등록 버튼 */
-    .item-insert-button {
-        width: 100%;
-
-        margin-top: 10px;
-    }
+.item-insert-box { max-width: 1100px; flex: 1; }
+.item-insert-box .ui-title { margin-bottom: 30px; }
+.item-form-group .ui-input { flex: 1; }
+.item-insert-button { grid-column: 1 / -1; width: 180px; margin: 0 auto; }
+@media (max-width: 900px) { .item-insert-box { max-width: 700px; } }
+@media (max-width: 700px) {
+    .item-insert-box .ui-title { margin-bottom: 24px; }
+    .item-insert-button { width: 100%; margin-top: 10px; }
 }

@@ -44,13 +44,13 @@ const Board = () => {
 
     //5. 화면표시
     return (
-        <div className="board-container">
-            <div className="board-box">
+        <div className="ui-page board-container">
+            <div className="ui-card board-box">
                 <div className="board-header">
-                    <h3>게시판</h3>
+                    <h3 className="ui-title">게시판</h3>
 
                     <Link to="/borad_write">
-                        <button className="board-write-button">
+                        <button className="ui-button board-write-button">
                             글쓰기
                         </button>
                     </Link>

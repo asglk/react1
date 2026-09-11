@@ -55,20 +55,20 @@ const Join = () => {
     };
 
     return (
-        <div className="join-container">
+        <div className="ui-page join-container">
 
-            <div className="join-box">
+            <div className="ui-card join-box">
 
-                <h3>회원가입</h3>
+                <h3 className="ui-title">회원가입</h3>
 
                 <form
-                    className="join-form"
+                    className="ui-form join-form"
                     onSubmit={handleJoin}
                 >
 
-                    <div className="join-input-group">
+                    <div className="ui-field join-input-group">
 
-                        <input
+                        <input className="ui-input"
                             type="text"
                             value={id}
                             placeholder="ID를 입력해주세요"
@@ -82,9 +82,9 @@ const Join = () => {
 
                     </div>
 
-                    <div className="join-input-group">
+                    <div className="ui-field join-input-group">
 
-                        <input
+                        <input className="ui-input"
                             type="password"
                             value={pw}
                             placeholder="비밀번호를 입력해주세요"
@@ -93,9 +93,9 @@ const Join = () => {
 
                     </div>
 
-                    <div className="join-input-group">
+                    <div className="ui-field join-input-group">
 
-                        <input
+                        <input className="ui-input"
                             type="text"
                             value={name}
                             placeholder="이름을 입력해주세요"
@@ -104,9 +104,9 @@ const Join = () => {
 
                     </div>
 
-                    <div className="join-input-group">
+                    <div className="ui-field join-input-group">
 
-                        <input
+                        <input className="ui-input"
                             type="number"
                             value={age}
                             placeholder="나이를 입력해주세요"
@@ -115,9 +115,9 @@ const Join = () => {
 
                     </div>
 
-                    <div className="join-input-group">
+                    <div className="ui-field join-input-group">
 
-                        <input
+                        <input className="ui-input"
                             type="text"
                             value={email}
                             placeholder="이메일을 입력해주세요"
@@ -127,7 +127,7 @@ const Join = () => {
                     </div>
 
                     <button
-                        className="join-button"
+                        className="ui-button join-button"
                         type="submit"
                     >
                         회원가입

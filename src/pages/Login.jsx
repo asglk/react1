@@ -41,25 +41,25 @@ const Login = () => {
     };
 
     return (
-        <div className="login-container">
+        <div className="ui-page login-container">
 
-            <div className="login-box">
+            <div className="ui-card login-box">
 
-                <h3>로그인</h3>
+                <h3 className="ui-title">로그인</h3>
 
                 <form
-                    className="login-form"
+                    className="ui-form login-form"
                     onSubmit={handleSubmit}
                 >
 
-                    <input
+                    <input className="ui-input"
                         type="text"
                         value={id}
                         placeholder="아이디를 입력해주세요"
                         onChange={(e) => setId(e.target.value)}
                     />
 
-                    <input
+                    <input className="ui-input"
                         type="password"
                         value={pw}
                         placeholder="비밀번호를 입력해주세요"

@@ -77,11 +77,11 @@ const ItemInsert = () => {
     };
     // 화면표시
     return (
-        <div className="item-insert-container">
+        <div className="ui-page item-insert-container">
 
-            <div className="item-insert-box">
+            <div className="ui-card item-insert-box">
 
-                <h3>물품등록</h3>
+                <h3 className="ui-title">물품등록</h3>
 
                 <form
                     className="item-insert-form"
@@ -89,9 +89,9 @@ const ItemInsert = () => {
                 >
                     <div className="item-insert-fields">
                     <div className="item-form-group">
-                        <label>물품명</label>
+                        <label className="ui-label">물품명</label>
 
-                        <input
+                        <input className="ui-input"
                             type="text"
                             value={name}
                             placeholder="물품명을 입력해주세요"
@@ -100,9 +100,9 @@ const ItemInsert = () => {
                     </div>
 
                     <div className="item-form-group">
-                        <label>물품가격</label>
+                        <label className="ui-label">물품가격</label>
 
-                        <input
+                        <input className="ui-input"
                             type="number"
                             value={price}
                             placeholder="물품가격을 입력해주세요"
@@ -111,9 +111,9 @@ const ItemInsert = () => {
                     </div>
 
                     <div className="item-form-group">
-                        <label>물품내용</label>
+                        <label className="ui-label">물품내용</label>
 
-                        <textarea
+                        <textarea className="ui-input"
                             value={content}
                             placeholder="물품내용을 입력해주세요"
                             onChange={(e) => setContent(e.target.value)}
@@ -121,9 +121,9 @@ const ItemInsert = () => {
                     </div>
 
                     <div className="item-form-group">
-                        <label>물품수량</label>
+                        <label className="ui-label">물품수량</label>
 
-                        <input
+                        <input className="ui-input"
                             type="number"
                             value={qty}
                             placeholder="물품수량을 입력해주세요"
@@ -132,12 +132,12 @@ const ItemInsert = () => {
                     </div>
 
                     <div className="item-form-group item-image-group">
-                        <label>이미지</label>
+                        <label className="ui-label">이미지</label>
 
                         <div className="item-image-area">
                             <div className="item-file-area">
                                 <input
-                                    className="item-file-input"
+                                    className="ui-input item-file-input"
                                     type="file"
                                     accept="image/*"
                                     onChange={handleImageChange}
@@ -155,7 +155,7 @@ const ItemInsert = () => {
                     </aside>
 
                     <button
-                        className="item-insert-button"
+                        className="ui-button item-insert-button"
                         type="submit"
                     >
                         물품등록

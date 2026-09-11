@@ -1,32 +1,3 @@
-/* 게시판 전체 영역 */
-.board-container {
-    min-height: calc(100vh - 130px);
-
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-
-    padding: 50px 20px;
-
-    background-color: #111111;
-    box-sizing: border-box;
-}
-
-/* 게시판 박스 */
-.board-box {
-    width: 100%;
-    max-width: 1000px;
-
-    padding: 30px;
-
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
-    border-radius: 10px;
-
-    box-sizing: border-box;
-}
-
-/* 게시판 제목과 글쓰기 버튼 영역 */
 .board-header {
     display: flex;
     align-items: center;
@@ -35,60 +6,44 @@
     margin-bottom: 24px;
 }
 
-/* 게시판 제목 */
-.board-header h3 {
-    margin: 0;
-
-    color: #ffffff;
-
-    font-size: 24px;
-    font-weight: 600;
-}
-
-/* 링크 밑줄 제거 */
 .board-header a {
     text-decoration: none;
 }
 
-/* 테이블이 화면을 벗어날 때 스크롤 */
 .board-table-wrapper {
     width: 100%;
     overflow-x: auto;
 
-    border: 1px solid #333333;
+    border: 1px solid var(--color-border);
     border-radius: 8px;
 }
 
-/* 게시판 테이블 */
 .board-table {
     width: 100%;
 
     border-collapse: collapse;
     table-layout: fixed;
 
-    background-color: #181818;
+    background-color: var(--color-field);
 
     color: #dddddd;
     font-size: 14px;
 }
 
-/* 테이블 제목 */
 .board-table thead {
     background-color: #242424;
 }
 
-/* 테이블 셀 */
 .board-table th,
 .board-table td {
     padding: 15px 12px;
 
-    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid var(--color-border);
 
     text-align: center;
     box-sizing: border-box;
 }
 
-/* 컬럼 너비 */
 .board-table th:nth-child(1) {
     width: 90px;
 }
@@ -109,33 +64,28 @@
     width: 160px;
 }
 
-/* 테이블 헤더 글자 */
 .board-table th {
-    color: #bbbbbb;
+    color: var(--color-label);
 
     font-weight: 600;
 }
 
-/* 마지막 행의 구분선 제거 */
 .board-table tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* 게시글 행 */
 .board-table tbody tr {
     transition: background-color 0.2s ease;
 }
 
-/* 게시글 행에 마우스를 올렸을 때 */
 .board-table tbody tr:hover {
     background-color: #222222;
 }
 
-/* 게시글 제목 */
 .board-title {
     overflow: hidden;
 
-    color: #eeeeee;
+    color: var(--color-text);
 
     text-align: left !important;
     text-overflow: ellipsis;
@@ -144,74 +94,35 @@
     cursor: pointer;
 }
 
-/* 게시글 제목에 마우스를 올렸을 때 */
 .board-title:hover {
-    color: #7dafff;
+    color: var(--color-accent);
     text-decoration: underline;
 }
 
-/* 게시글이 없을 때 */
 .board-empty {
     height: 160px;
 
-    color: #777777;
+    color: var(--color-muted);
 
     text-align: center !important;
 }
 
-/* 전체 게시글 정보 */
 .board-info {
     margin-top: 14px;
 
-    color: #777777;
+    color: var(--color-muted);
 
     font-size: 13px;
     text-align: right;
 }
 
-/* 글쓰기 버튼 */
-.board-write-button {
-    height: 38px;
-
-    padding: 0 20px;
-
-    background-color: #eeeeee;
-    color: #111111;
-
-    border: none;
-    border-radius: 6px;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        background-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-/* 글쓰기 버튼에 마우스를 올렸을 때 */
-.board-write-button:hover {
-    background-color: #ffffff;
-    transform: translateY(-1px);
-}
-
-/* 작은 화면 */
 @media (max-width: 700px) {
-    .board-container {
-        padding: 25px 12px;
-    }
-
-    .board-box {
-        padding: 20px 14px;
-    }
-
-    .board-header h3 {
-        font-size: 21px;
-    }
 
     .board-table {
         min-width: 700px;
     }
 }
+
+.board-box { max-width: 1000px; }
+.board-header .ui-title { margin: 0; }
+.board-write-button { height: 38px; }

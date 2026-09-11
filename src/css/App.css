@@ -1,21 +1,7 @@
-/* 전체 화면 */
-body {
-    margin: 0;
-    background-color: #111111;
-    color: #ffffff;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        sans-serif;
-}
-
 /* App 전체 */
 .app {
     min-height: 100vh;
-    background-color: #111111;
+    background-color: var(--color-bg);
 }
 
 /* 상단 네비게이션 */
@@ -27,8 +13,8 @@ body {
     justify-content: center;
     gap: 8px;
 
-    background-color: #1a1a1a;
-    border-bottom: 1px solid #333333;
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
 
     box-sizing: border-box;
 }
@@ -41,7 +27,7 @@ body {
     padding: 0 18px;
 
     background-color: transparent;
-    color: #bbbbbb;
+    color: var(--color-label);
 
     border: 1px solid transparent;
     border-radius: 6px;
@@ -57,13 +43,13 @@ body {
 /* 마우스를 올렸을 때 */
 .nav-button:hover {
     background-color: #2a2a2a;
-    color: #ffffff;
+    color: var(--color-heading);
     border-color: #444444;
 }
 
 /* 페이지 영역 */
 .main-content {
-    min-height: calc(100vh - 130px);
+    min-height: var(--page-min-height);
 }
 
 /* 구분선 */
@@ -71,7 +57,7 @@ hr {
     margin: 0;
 
     border: none;
-    border-top: 1px solid #333333;
+    border-top: 1px solid var(--color-border);
 }
 
 /* 하단 */
